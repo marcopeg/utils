@@ -1,5 +1,22 @@
 # utils
-Javascript utils for server and client projects
+This is an opinionated set of personal javascript utilities that I
+use to share from project to project and I'm tired to copy over.
+
+Why?
+
+**Point n.1:** Many great libraries have huge footprint. Here I aim
+for the barebone and allow to cherry pick each module seapratedly.
+
+**Point n.2:** Sometimes it's just faster to DIY. I plan to keep
+this library as a personal API and implement the functions with better
+open source libraries if/when I find them.
+
+**Point n.3:** If Facebook does it (fbjs), why shouldn't I? :-)
+
+**Point n.4:** No backward compatibility. I target NodeJS from version
+9.x and modern web browsers. There is no transpilation that will bloat the code.
+
+# Modules
 
 ## cancelEvent
 
@@ -53,6 +70,11 @@ async function foo () {
     console.log('after')
 }
 ```
+
+## request
+
+Wraps isomorphic fetch with some basic utility functions.
+(this can be optimized a lot)
 
 ## truncate
 
