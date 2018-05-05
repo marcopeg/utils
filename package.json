@@ -1,6 +1,6 @@
 {
   "name": "@marcopeg/utils",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Javascript utils for server and client projects",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,7 @@
   },
   "babel": {
     "presets": [
+      "es2015",
       "es2017"
     ]
   },
@@ -25,6 +26,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-es2017": "^6.24.1"
   }
 }
