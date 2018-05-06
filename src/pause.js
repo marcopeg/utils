@@ -1,5 +1,5 @@
 
-const pause = async time =>
+const pause = time =>
     new Promise(resolve => setTimeout(resolve, time))
 
 module.exports = pause
