@@ -153,9 +153,9 @@ const putJSONAuth = (url, token, data = {}, config = {}) => {
 wrappedFetch.setDevDelay = setDevDelay
 wrappedFetch.getJSON = getJSON
 wrappedFetch.getJSONAuth = getJSONAuth
+wrappedFetch.postJSON = postJSON
 wrappedFetch.postJSONAuth = postJSONAuth
-wrappedFetch.postJSONAuth = postJSONAuth
-wrappedFetch.putJSONAuth = putJSONAuth
+wrappedFetch.putJSON = putJSON
 wrappedFetch.putJSONAuth = putJSONAuth
 
 module.exports = wrappedFetch
