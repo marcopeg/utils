@@ -47,9 +47,10 @@ const getJSON = async (url, config = {}) => {
             const error = new Error(`${res.status} - ${errMsg}`)
             error.response = res
             throw error
+            
+        } else {
+            return await res.json()
         }
-
-        return await res.json()
     } catch (err) {
         throw err
     }
