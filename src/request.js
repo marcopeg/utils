@@ -150,6 +150,48 @@ const putJSONAuth = (url, token, data = {}, config = {}) => {
     return putJSON(url, data, options)
 }
 
+const deleteJSON = async (url, config = {}) => {
+    try {
+        const headers = Object.assign({}, config.headers || {}, {
+            'content-type': 'application/json',
+        })
+        const options = Object.assign({}, config, {
+            method: 'DELETE',
+            headers: headers,
+        })
+        const res = await wrappedFetch(url, options)
+
+        // status code error handling
+        if (res.status !== 200) {
+            let errMsg
+            try {
+                errMsg = await res.text()
+            } catch (err) {
+                errMsg = res.statusText
+            }
+
+            const error = new Error(`${res.status} - ${errMsg}`)
+            error.response = res
+            throw error
+            
+        } else {
+            return await res.json()
+        }
+    } catch (err) {
+        throw err
+    }
+}
+
+const deleteJSONAuth = (url, token, config = {}) => {
+    const headers = Object.assign({}, config.headers || {}, {
+        Authorization: `Bearer ${token}`,
+    })
+    const options = Object.assign({}, config, {
+        headers: headers,
+    })
+    return deleteJSON(url, options)
+}
+
 // export sub modules as part of the main function
 wrappedFetch.setDevDelay = setDevDelay
 wrappedFetch.getJSON = getJSON
@@ -158,5 +200,7 @@ wrappedFetch.postJSON = postJSON
 wrappedFetch.postJSONAuth = postJSONAuth
 wrappedFetch.putJSON = putJSON
 wrappedFetch.putJSONAuth = putJSONAuth
+wrappedFetch.deleteJSON = deleteJSON
+wrappedFetch.deleteJSONAuth = deleteJSONAuth
 
 module.exports = wrappedFetch
