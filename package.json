@@ -1,6 +1,6 @@
 {
   "name": "@marcopeg/utils",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "Javascript utils for server and client projects",
   "main": "index.js",
   "scripts": {

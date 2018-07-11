@@ -23,7 +23,13 @@ const get = (key, defaultValue) => {
     return process.env[key]
 }
 
-const isDev = () => get('NODE_ENV') === 'development'
+const isDev = () => {
+    if (!isDev.NODE_ENV) {
+        isDev.NODE_ENV = get('NODE_ENV')
+    }
+
+    return isDev.NODE_ENV === 'development'
+}
 
 module.exports = {
     init,
