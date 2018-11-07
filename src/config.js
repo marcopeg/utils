@@ -16,8 +16,9 @@ module.cache = {}
  * 
  * @param {*} envVars 
  */
-const init = (envVars) => {
+const init = (envVars, debug) => {
     module.cache.envVars = Object.assign({}, envVars)
+    module.cache.debug = debug
 }
 
 const get = (key, defaultValue) => {
@@ -25,13 +26,13 @@ const get = (key, defaultValue) => {
 
     if (pool[key] === undefined) {
         if (defaultValue) {
-            // log(`${key}::default::${defaultValue}`)
+            module.cache.debug && console.log(`[debug] process.env.${key}::default::${defaultValue}`)
             return defaultValue
         }
 
         throw new Error(`Env "${key}" not defined`)
     }
-    // log(`${key}::${pool[key]}`)
+    module.cache.debug && console.log(`[debug] process.env.${key}::${pool[key]}`)
     return pool[key]
 }
 

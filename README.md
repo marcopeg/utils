@@ -103,3 +103,14 @@ const truncate = require('@marcopeg/utils/lib/truncate)
 truncate('123456789', 5, '...')
 -> 1...9
 ```
+
+## Logger
+
+```
+const logger = require('@marcopeg/utils/lib/logger')
+logger.init()
+logger.logInfo('foo)
+```
+
+**INIT:** this module needs to be initialize so to read (and cache) the
+enviroment LOG_LEVEL, or to explicitly receive a log level via first param
