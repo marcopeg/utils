@@ -54,6 +54,25 @@ if (config.isDev()) {
 }
 ```
 
+**INIT:** working with ParcelJS I came across a glitch. ParcelJS does
+not populate the "process.env" like in Webpack (or NodeJS) and yoo must
+access the variable by writing the full "process.env.VAR_NAME" in the code
+which I believe is then substituted with the value itself.
+
+To make `config` compatible you need to initialize it with all the "hard coded"
+values:
+
+```
+const config = require('@marcopeg/utils/lib/config)
+config.init({
+    NODE_ENV: process.env.NODE_ENV,
+    NOT_DEFINED: process.env.NOT_DEFINED, // will be "undefined"
+})
+
+console.log(config.get('NOT_DEFINED', 'default'))
+//-> "default"
+```
+
 ## getErrorOrigin
 
 Improve errors stack trace

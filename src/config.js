@@ -5,22 +5,34 @@
  * Strict ENV based configuration proxy
  */
 
-// const winston = require('winston')
-const log = require('./logger/verbose')
+// allow to perform module memoization
+module.cache = {}
 
-const init = () => {}
+/**
+ * Allows to forcefully pass a pool of variables to use as origin
+ * 
+ * NOTE: This is needed because ParcelJS does not provide a "process.env"
+ * variable at start time.
+ * 
+ * @param {*} envVars 
+ */
+const init = (envVars) => {
+    module.cache.envVars = Object.assign({}, envVars)
+}
 
 const get = (key, defaultValue) => {
-    if (process.env[key] === undefined) {
+    const pool = module.cache.envVars || process.env
+
+    if (pool[key] === undefined) {
         if (defaultValue) {
-            log(`${key}::default::${defaultValue}`)
+            // log(`${key}::default::${defaultValue}`)
             return defaultValue
         }
 
         throw new Error(`Env "${key}" not defined`)
     }
-    log(`${key}::${process.env[key]}`)
-    return process.env[key]
+    // log(`${key}::${pool[key]}`)
+    return pool[key]
 }
 
 const isDev = () => {
