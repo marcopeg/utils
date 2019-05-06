@@ -4,7 +4,7 @@ import compression from 'compression'
 import helmet from 'helmet'
 import { createHook, createHookContext } from '@marcopeg/hooks'
 import { INIT_SERVICE, START_SERVICE } from '@marcopeg/hooks'
-import { logInfo } from 'ssr/services/logger'
+import { logInfo } from '@marcopeg/utils/lib/services/logger'
 import { EXPRESS_INIT, EXPRESS_MIDDLEWARE, EXPRESS_ROUTE, EXPRESS_HANDLER } from './hooks'
 
 const app = express()
@@ -12,6 +12,10 @@ const server = createServer(app)
 
 export const init = async (settings) => {
     logInfo('[express] init...')
+
+    if (!settings) {
+        throw new Error('[express] missing settings')
+    }
 
     await createHook(EXPRESS_INIT, {
         async: 'serie',

@@ -1,3 +1,5 @@
+// @TODO: let a configuration to tell where to fetch the locale files
+
 import path from 'path'
 import fs from 'fs'
 
@@ -8,12 +10,13 @@ import {
 } from 'graphql'
 
 import GraphQLJSON from 'graphql-type-json'
-import { EXPRESS_GRAPHQL } from 'ssr/services/express/hooks'
+import { EXPRESS_GRAPHQL } from '@marcopeg/utils/lib/services/express/hooks'
 
 const loadLocaleFile = (locale) => new Promise((resolve, reject) => {
-    const origin = (process.env.NODE_ENV === 'development' && locale !== 'en')
-        ? 'public'
-        : 'build'
+    // const origin = (process.env.NODE_ENV === 'development' && locale !== 'en')
+    //     ? 'public'
+    //     : 'build'
+    const origin = '.'
     const filePath = path.join(process.cwd(), origin, 'locale', `${locale.toLowerCase()}.json`)
     fs.readFile(filePath, 'utf8', (err, data) => err ? reject(err) : resolve(data))
 })
