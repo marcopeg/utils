@@ -10,7 +10,7 @@ import {
 } from 'graphql'
 
 import GraphQLJSON from 'graphql-type-json'
-import { EXPRESS_GRAPHQL } from '@marcopeg/utils/lib/services/express/hooks'
+import { EXPRESS_GRAPHQL } from '@marcopeg/utils/services/express/hooks'
 
 const loadLocaleFile = (locale) => new Promise((resolve, reject) => {
     // const origin = (process.env.NODE_ENV === 'development' && locale !== 'en')

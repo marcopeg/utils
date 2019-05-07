@@ -17,8 +17,8 @@ export const cookieHelper = ({ scope, duration }) =>
             },
         }
 
-        const getAppName = name => `${scope || 'xxx'}::${name}`
-        const getClientName = name => `${scope || 'xxx'}--${name}`
+        const getAppName = name => `${scope || 'app'}::${name}`
+        const getClientName = name => `${scope || 'app'}--${name}`
 
         // App Cookie
         res.setAppCookie = (name, content) => res.cookie(getAppName(name), content, options.app)

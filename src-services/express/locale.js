@@ -2,7 +2,7 @@
 
 import createLocaleMiddleware from 'express-locale'
 import { SERVICE } from '@marcopeg/hooks'
-import { EXPRESS_MIDDLEWARE } from '@marcopeg/utils/lib/services/express/hooks'
+import { EXPRESS_MIDDLEWARE } from '@marcopeg/utils/services/express/hooks'
 
 export const register = ({ registerAction }) =>
     registerAction({

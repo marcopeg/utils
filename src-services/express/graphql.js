@@ -1,7 +1,7 @@
 import { GraphQLSchema, GraphQLObjectType, GraphQLString } from 'graphql'
 import expressGraphql from 'express-graphql'
 import { createHook } from '@marcopeg/hooks'
-import ssr from '../../../package.json'
+import ssr from '../../package.json'
 import { EXPRESS_ROUTE, EXPRESS_GRAPHQL } from './hooks'
 
 const info = {

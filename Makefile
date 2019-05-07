@@ -8,4 +8,4 @@ build:
 	yarn build
 
 publish:
-	npm run publish
+	npm run go

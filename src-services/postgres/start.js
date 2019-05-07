@@ -1,5 +1,5 @@
 import pause from '@marcopeg/utils/lib/pause'
-import { logInfo, logVerbose, logDebug, logError } from 'ssr/services/logger'
+import { logInfo, logVerbose, logDebug, logError } from '@marcopeg/utils/services/logger'
 import { getHandler, pushModel, getModel } from './conn'
 
 const establishConnection = async (conn, maxAttempts, attemptDelay) => {
