@@ -1,3 +1,4 @@
-src
+src-lib
+src-services
 node_modules
 yarn.lock

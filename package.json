@@ -1,11 +1,13 @@
 {
   "name": "@marcopeg/utils",
-  "version": "1.14.5",
+  "version": "1.14.6",
   "description": "Javascript utils for server and client projects",
   "main": "index.js",
   "scripts": {
     "start": "node_modules/babel-cli/bin/babel.js --watch src --out-dir lib",
-    "build": "node_modules/babel-cli/bin/babel.js src --out-dir lib",
+    "build:lib": "node_modules/babel-cli/bin/babel.js src-lib --out-dir lib",
+    "build:services": "node_modules/babel-cli/bin/babel.js src-services --out-dir services",
+    "build": "npm run build:lib && npm run build:services",
     "go": "npm run build && npm publish --access public ."
   },
   "babel": {

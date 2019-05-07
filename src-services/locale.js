@@ -16,7 +16,7 @@ const loadLocaleFile = (locale) => new Promise((resolve, reject) => {
     // const origin = (process.env.NODE_ENV === 'development' && locale !== 'en')
     //     ? 'public'
     //     : 'build'
-    const origin = '.'
+    const origin = 'src'
     const filePath = path.join(process.cwd(), origin, 'locale', `${locale.toLowerCase()}.json`)
     fs.readFile(filePath, 'utf8', (err, data) => err ? reject(err) : resolve(data))
 })
