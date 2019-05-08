@@ -1,4 +1,6 @@
 src-lib
-src-services
+src-bin
 node_modules
 yarn.lock
+DEVELOPMENT.md
+Makefile
