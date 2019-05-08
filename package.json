@@ -1,22 +1,19 @@
 {
   "name": "@marcopeg/utils",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Javascript utils for server and client projects",
   "main": "index.js",
   "scripts": {
     "go": "npm run build && npm publish --access public .",
     "----- // BUILD // -----": "",
     "build:lib": "./node_modules/babel-cli/bin/babel.js src-lib --out-dir lib",
-    "build:bin": "./node_modules/babel-cli/bin/babel.js src-bin --out-dir bin",
-    "build": "npm run build:lib && npm run build:bin",
+    "build": "npm run build:lib",
     "----- // START // -----": "",
     "start:lib": "./node_modules/babel-cli/bin/babel.js --watch src-lib --out-dir lib",
-    "start:bin": "./node_modules/babel-cli/bin/babel.js --watch src-bin --out-dir bin",
-    "start": "./node_modules/.bin/concurrently \"npm run start:lib\" \"npm run start:bin\"",
+    "start": "./node_modules/.bin/concurrently \"npm run start:lib\"",
     "----- // START:TO // -----": "",
     "start:to:lib": "node_modules/babel-cli/bin/babel.js --watch src-lib --out-dir \"$TARGET\"node_modules/@marcopeg/utils/lib",
-    "start:to:bin": "node_modules/babel-cli/bin/babel.js --watch src-bin --out-dir \"$TARGET\"node_modules/@marcopeg/utils/bin",
-    "start:to": "./node_modules/.bin/concurrently \"npm run start:to:lib\" \"npm run start:to:bin\""
+    "start:to": "./node_modules/.bin/concurrently \"npm run start:to:lib\""
   },
   "babel": {
     "presets": [
